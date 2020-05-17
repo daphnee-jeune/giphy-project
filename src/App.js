@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import './App.css'
 import axios from "axios"
-import SearchBar from './components/Searchbar'
-import Gifs from './components/Gifs'
+import SearchBar from './Searchbar'
+import Gifs from './Gifs'
 
 class App extends Component {
   constructor(){
