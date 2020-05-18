@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   performSearch = (query = "laughing") => {
-    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=LkY4hxNQg7s9SyDxpfl2sGcdNGDZapwm`)
+    axios.get(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=LkY4hxNQg7s9SyDxpfl2sGcdNGDZapwm`)
     .then(res => {
       this.setState({ 
         gifs: res.data.data,
