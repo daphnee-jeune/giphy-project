@@ -3,8 +3,6 @@ import './App.css'
 import axios from "axios"
 import Searchbar from './components/Searchbar'
 import Gifs from './components/Gifs'
-import Searchbar from './components/Searchbar'
-import Gifs from './Gifs'
 
 class App extends Component {
   constructor(){
