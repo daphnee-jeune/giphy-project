@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
+import axios from "axios"
+import SearchBar from './components/Searchbar'
+import Gifs from './components/Gifs'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      gifs: [],
+      loading: true
+    }
+  }
+
+  performSearch = (query = "laughing") => {
+    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=LkY4hxNQg7s9SyDxpfl2sGcdNGDZapwm`)
+    .then(res => {
+      this.setState({ 
+        gifs: res.data.data,
+        loading: false 
+      })
+    })
+    .catch(err => console.log("Error parsing and fetching data", err)
+    )
+  }
+
+  componentDidMount() {
+    this.performSearch()
+  }
+
+  render() {
+    console.log(this.state.gifs)
+    
+    return (
+      <div>
+        <div className="main-header">
+          <div className="inner">
+            <h1 className="main-title">Gif Finder</h1>
+            <SearchBar performSearch={this.performSearch} />
+          </div>
+        </div>
+        <div className="main-content">
+          { this.state.loading ? <p className="loading">Loading...</p> : <Gifs data={this.state.gifs} /> }
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
