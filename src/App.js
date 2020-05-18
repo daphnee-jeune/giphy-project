@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import './App.css'
 import axios from "axios"
-import SearchBar from './components/Searchbar'
+import Searchbar from './components/Searchbar'
 import Gifs from './components/Gifs'
+import Searchbar from './components/Searchbar'
+import Gifs from './Gifs'
 
 class App extends Component {
   constructor(){
@@ -37,7 +39,7 @@ class App extends Component {
         <div className="main-header">
           <div className="inner">
             <h1 className="main-title">Gif Finder</h1>
-            <SearchBar performSearch={this.performSearch} />
+            <Searchbar performSearch={this.performSearch} />
           </div>
         </div>
         <div className="main-content">
