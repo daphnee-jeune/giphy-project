@@ -161,7 +161,10 @@ input:focus {
   .search-form {
     width: 422px;
     float: right;
-    margin-top: 34px;
+    margin-top: 38px;
+  }
+  .search-form:focus {
+   outline: none; 
   }
   .gif-list li {
     width: 33.333333333%;
